@@ -12,9 +12,14 @@ const Formulario = () => {
         
         })
 
-        const actualizarState = () => {
-            console.log('escrbiendo....');
+        const actualizarState = e => {
+           actualizarCita({
+            ...cita,
+            [e.target.name]: e.target.value
+           })
         }
+
+        const { mascota, propietario, fecha, hora, sintomas} = cita;
     return ( 
         <Fragment>
             <h2>Crear cita</h2>
@@ -26,6 +31,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder='Nombre de mascota'
                     onChange={actualizarState}
+                    value={mascota}
                     />
 
                 <label>Nombre del Dueño</label>
@@ -35,6 +41,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder='Nombre de dueño de la mascota'
                     onChange={actualizarState}
+                    value={propietario}
                     />
 
                  
@@ -44,7 +51,8 @@ const Formulario = () => {
                     type= "date"
                     name="fecha"
                     className="u-full-width"  
-                    onChange={actualizarState}                 
+                    onChange={actualizarState}
+                    value={fecha}                 
                     />
 
                 <label>Hora</label>
@@ -52,12 +60,13 @@ const Formulario = () => {
                     type= "time"
                     name="hora"
                     className="u-full-width"
-                    onChange={actualizarState}                  
+                    onChange={actualizarState} 
+                    value={hora}                 
                     />
  
                 <label>Síntomas</label>
                <textarea  className = "u-full-width"
-                 name= 'sintomas'  onChange={actualizarState}>  
+                 name= 'sintomas'  onChange={actualizarState}  value={sintomas}>  
                                
                </textarea>
 
