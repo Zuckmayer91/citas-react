@@ -6,7 +6,7 @@ let myuuid = uuidv4();
 
 
 
-const Formulario = () => {
+const Formulario = ({crearCita}) => {
 
     // Crear state de citas
     const[cita, actualizarCita] = useState ({
@@ -50,8 +50,10 @@ const Formulario = () => {
          
         // Asignar id
          cita.id = uuidv4();
-         console.log(cita);
+        
         // Crear la cita
+         crearCita(cita);
+         
         // Reiniciar el formulario
         }
     return ( 
